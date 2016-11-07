@@ -29,8 +29,8 @@ public class AlbumDAO extends SQLiteOpenHelper{
     private static final String DATABASENAME = "AlbumDB";
     private static final Integer DATABASEVERSION = 1;
 
-    //TABLA PERSONA CON SUS CAMPOS
-    private static final String TABLEPOST = "Post";
+    //TABLA ALBUM CON SUS CAMPOS
+    private static final String ALBUMTABLE = "Album";
     private static final String ID = "ID";
     private static final String TITLE = "title";
     private static final String IMAGE = "Body";
@@ -45,7 +45,7 @@ public class AlbumDAO extends SQLiteOpenHelper{
 
         //CREA LA ESTRUCTURA DE LA BASE DE DATOS, ES DECIR LA/LAS TABLA/S
 
-        String createTable = "CREATE TABLE " + TABLEPOST + "("
+        String createTable = "CREATE TABLE " + ALBUMTABLE + "("
                 + ID + " INTEGER PRIMARY KEY, "
                 + TITLE + " TEXT, "
                 + IMAGE + " TEXT " + ")";
@@ -58,7 +58,7 @@ public class AlbumDAO extends SQLiteOpenHelper{
 
     }
 
-    //CONSTRUIR UN METODO QUE AGREGUE UN POST A LA BASE DE DATOS
+    //CONSTRUIR UN METODO QUE AGREGUE UN ALBUM A LA BASE DE DATOS
     public void addAlbumToDatabase(Album album){
 
         //PIDE UNA CONEXION DE ESCRITURA A LA BD
@@ -72,8 +72,8 @@ public class AlbumDAO extends SQLiteOpenHelper{
         row.put(TITLE, album.getTitle());
         row.put(IMAGE, album.getThumbnailUrl());
 
-        //INSERTA EN LA DATABASE EN LA TABLA POST LA FILA CREADA
-        database.insert(TABLEPOST, null, row);
+        //INSERTA EN LA DATABASE EN LA TABLA ALBUM LA FILA CREADA
+        database.insert(ALBUMTABLE, null, row);
 
         database.close();
 
@@ -84,27 +84,27 @@ public class AlbumDAO extends SQLiteOpenHelper{
 
         SQLiteDatabase database = getReadableDatabase();
 
-        List<Album> postList = new ArrayList<>();
+        List<Album> albumList = new ArrayList<>();
 
-        String select = "SELECT * FROM " + TABLEPOST;
+        String select = "SELECT * FROM " + ALBUMTABLE;
 
         Cursor cursor = database.rawQuery(select, null);
 
         //MIENTRAS HAYA FILAS PARA LEER
         while(cursor.moveToNext()){
 
-            //LEER AL POST
-            Album post = new Album();
-            post.setId(cursor.getInt(cursor.getColumnIndex(ID)));
-            post.setTitle(cursor.getString(cursor.getColumnIndex(TITLE)));
-            post.setThumbnailUrl(cursor.getString(cursor.getColumnIndex(IMAGE)));
+            //LEE EL ALBUM
+            Album album = new Album();
+            album.setId(cursor.getInt(cursor.getColumnIndex(ID)));
+            album.setTitle(cursor.getString(cursor.getColumnIndex(TITLE)));
+            album.setThumbnailUrl(cursor.getString(cursor.getColumnIndex(IMAGE)));
 
-            postList.add(post);
+            albumList.add(album);
         }
 
         cursor.close();
         database.close();
-        return postList;
+        return albumList;
     }
 
     //// CONEXION A INTERNET - NECESITA TAREA ASINCRONA
@@ -133,7 +133,7 @@ public class AlbumDAO extends SQLiteOpenHelper{
 
             AlbumContainer albumContainer = null;
             try {
-                InputStream input = connectionManager.getRequestStream("https://api.myjson.com/bins/2haa3");
+                InputStream input = connectionManager.getRequestStream("https://api.myjson.com/bins/25hip");
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(input));
                 Gson gson = new Gson();
                 albumContainer = gson.fromJson(bufferedReader, AlbumContainer.class);

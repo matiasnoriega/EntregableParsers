@@ -10,10 +10,9 @@ public class Album {
     private String url;
     private String thumbnailUrl;
 
-    public Album(Integer id, String title, String url, String thumbnailUrl) {
+    public Album() {
         this.id = id;
         this.title = title;
-        this.url = url;
         this.thumbnailUrl = thumbnailUrl;
     }
 

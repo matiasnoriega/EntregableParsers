@@ -1,4 +1,4 @@
-package util;
+package com.example.matias.entregableparsers.util;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

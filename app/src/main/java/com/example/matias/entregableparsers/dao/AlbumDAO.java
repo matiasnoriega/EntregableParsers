@@ -33,6 +33,7 @@ public class AlbumDAO extends SQLiteOpenHelper{
     private static final String ALBUMTABLE = "Album";
     private static final String ID = "ID";
     private static final String TITLE = "title";
+    private static final String URL = "url";
     private static final String IMAGE = "thumbnailUrl";
 
     //EL CONSTRUCTOR CREA LA BASE DE DATOS
@@ -48,6 +49,7 @@ public class AlbumDAO extends SQLiteOpenHelper{
         String createTable = "CREATE TABLE " + ALBUMTABLE + "("
                 + ID + " INTEGER PRIMARY KEY, "
                 + TITLE + " TEXT, "
+                + URL + " TEXT, "
                 + IMAGE + " TEXT " + ")";
 
         database.execSQL(createTable);
@@ -70,6 +72,7 @@ public class AlbumDAO extends SQLiteOpenHelper{
         //Obtengo los datos y los cargo en el row
         row.put(ID, album.getId());
         row.put(TITLE, album.getTitle());
+        row.put(URL, album.getUrl());
         row.put(IMAGE, album.getThumbnailUrl());
 
         //INSERTA EN LA DATABASE EN LA TABLA ALBUM LA FILA CREADA
@@ -97,6 +100,7 @@ public class AlbumDAO extends SQLiteOpenHelper{
             Album album = new Album();
             album.setId(cursor.getInt(cursor.getColumnIndex(ID)));
             album.setTitle(cursor.getString(cursor.getColumnIndex(TITLE)));
+            album.setUrl(cursor.getString(cursor.getColumnIndex(URL)));
             album.setThumbnailUrl(cursor.getString(cursor.getColumnIndex(IMAGE)));
 
             albumList.add(album);

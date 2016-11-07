@@ -33,7 +33,7 @@ public class AlbumDAO extends SQLiteOpenHelper{
     private static final String ALBUMTABLE = "Album";
     private static final String ID = "ID";
     private static final String TITLE = "title";
-    private static final String IMAGE = "Body";
+    private static final String IMAGE = "thumbnailUrl";
 
     //EL CONSTRUCTOR CREA LA BASE DE DATOS
     public AlbumDAO(Context context) {

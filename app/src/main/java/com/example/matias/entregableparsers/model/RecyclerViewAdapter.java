@@ -11,6 +11,7 @@ package com.example.matias.entregableparsers.model;
         import com.bumptech.glide.Glide;
         import com.example.matias.entregableparsers.R;
 
+        import java.util.ArrayList;
         import java.util.List;
 
 /**
@@ -24,7 +25,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter {
 
     public RecyclerViewAdapter(Context contexto) {
         this.contexto = contexto;
-        //this.listaDeAlbumes = listaDeAlbumes;
+        this.listaDeAlbumes = new ArrayList<Album>();
     }
 
     public Context getContexto() {

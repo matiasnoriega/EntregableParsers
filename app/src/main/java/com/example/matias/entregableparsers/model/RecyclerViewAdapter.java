@@ -22,8 +22,24 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter {
     private List<Album> listaDeAlbumes;
 
 
-    public RecyclerViewAdapter(Context contexto, List<Album> listaDeAlbumes) {
+    public RecyclerViewAdapter(Context contexto) {
         this.contexto = contexto;
+        //this.listaDeAlbumes = listaDeAlbumes;
+    }
+
+    public Context getContexto() {
+        return contexto;
+    }
+
+    public void setContexto(Context contexto) {
+        this.contexto = contexto;
+    }
+
+    public List<Album> getListaDeAlbumes() {
+        return listaDeAlbumes;
+    }
+
+    public void setListaDeAlbumes(List<Album> listaDeAlbumes) {
         this.listaDeAlbumes = listaDeAlbumes;
     }
 

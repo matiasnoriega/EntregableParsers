@@ -29,7 +29,7 @@ public class AlbumCompletoFragment extends Fragment {
         ImageView imageView = (ImageView) viewADevolver.findViewById(R.id.image_fragment_pantallaCompleta);
         TextView textView = (TextView) viewADevolver.findViewById(R.id.textViewTituloAlbumCompleto);
 
-        Glide.with(viewADevolver.getContext()).load(bundle.getString("imagen")).into(imageView);
+        Glide.with(viewADevolver.getContext()).load(bundle.getString("imagen")).placeholder(R.drawable.placeholder).into(imageView);
         textView.setText(bundle.getString("titulo"));
 
         return viewADevolver;

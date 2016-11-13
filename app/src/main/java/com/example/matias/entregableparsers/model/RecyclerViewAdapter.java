@@ -80,7 +80,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter {
 
         public void cargarAlbum(Album album){
             textViewTitulo.setText(album.getTitle());
-            Glide.with(contexto).load(album.getThumbnailUrl()).into(imageViewfotoAlbum);
+            Glide.with(contexto).load(album.getThumbnailUrl()).placeholder(R.drawable.placeholder).into(imageViewfotoAlbum);
         }
     }
 }

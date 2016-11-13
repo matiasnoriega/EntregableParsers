@@ -2,11 +2,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.matias.entregableparsers.view.AlbumCompletoFragment">
+    tools:context="com.example.matias.entregableparsers.view.AlbumCompletoFragment"
+    android:id="@+id/frameLayoutAlbumCompleto">
 
-    <TextView
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/image_fragment_pantallaCompleta"
+        android:scaleType="centerCrop"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hello_blank_fragment"
+        android:layout_gravity="bottom"
+        android:id="@+id/textViewTituloAlbumCompleto"/>
 
 </FrameLayout>

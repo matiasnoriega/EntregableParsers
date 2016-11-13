@@ -11,9 +11,6 @@ public class Album {
     private String thumbnailUrl;
 
     public Album() {
-        this.id = id;
-        this.title = title;
-        this.thumbnailUrl = thumbnailUrl;
     }
 
     public Integer getId() {

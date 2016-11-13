@@ -6,7 +6,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.matias.entregableparsers.R;
 import com.example.matias.entregableparsers.model.Album;
 
@@ -20,7 +23,15 @@ public class AlbumCompletoFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_album_completo, container, false);
+        View viewADevolver = inflater.inflate(R.layout.fragment_album_completo, container, false);
+        Bundle bundle = getArguments();
+
+        ImageView imageView = (ImageView) viewADevolver.findViewById(R.id.image_fragment_pantallaCompleta);
+        TextView textView = (TextView) viewADevolver.findViewById(R.id.textViewTituloAlbumCompleto);
+
+        Glide.with(viewADevolver.getContext()).load("imagen").into(imageView);
+        textView.setText(bundle.getString("titulo"));
+        return viewADevolver;
     }
 
     public static AlbumCompletoFragment crearAlbumCompletoFragment(Album unAlbum) {

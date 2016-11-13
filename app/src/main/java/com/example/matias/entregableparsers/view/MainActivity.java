@@ -1,9 +1,10 @@
 package com.example.matias.entregableparsers.view;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.example.matias.entregableparsers.R;
 import com.example.matias.entregableparsers.controller.AlbumController;
@@ -30,11 +31,10 @@ public class MainActivity extends AppCompatActivity {
         albumController.getAllAlbums(this, new ResultListenerAlbum<List<Album>>());
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-
-
         recyclerView.setAdapter(recyclerViewAdapter);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setHasFixedSize(true);
 
 
     }
@@ -50,4 +50,26 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
+
+    public class Listener implements View.OnClickListener{
+
+
+        @Override
+        public void onClick(View view) {
+
+            ViewPagerNoticiasFragment viewPagerNoticiasFragment = new ViewPagerNoticiasFragment();
+            Bundle bundle = new Bundle();
+
+            bundle.putInt("Posicion", recyclerView.getChildAdapterPosition(view));
+            bundle.putString("Categoria", getCategoria());
+
+
+            viewPagerNoticiasFragment.setArguments(bundle);
+
+            android.support.v4.app.FragmentManager fragmentManager = getFragmentManager();
+            android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_main, viewPagerNoticiasFragment);
+            fragmentTransaction.commit();
+
+        }
 }

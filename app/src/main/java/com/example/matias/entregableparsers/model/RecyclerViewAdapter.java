@@ -20,11 +20,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter {
 
     private Context contexto;
     private List<Album> listaDeAlbumes;
+    private View.OnClickListener listener;
 
 
-    public RecyclerViewAdapter(Context contexto, List<Album> listaDeAlbumes) {
+    public RecyclerViewAdapter(Context contexto, List<Album> listaDeAlbumes, View.OnClickListener onClickListener) {
         this.contexto = contexto;
         this.listaDeAlbumes = listaDeAlbumes;
+        this.listener = onClickListener;
     }
 
     public Context getContexto() {

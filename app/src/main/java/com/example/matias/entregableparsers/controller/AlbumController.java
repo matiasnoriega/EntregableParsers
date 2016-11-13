@@ -13,24 +13,26 @@ import java.util.List;
 
 public class AlbumController {
 
+    public AlbumController() {
+    }
+
     public void getAllAlbums(final Context context, final ResultListener<List<Album>> resultListenerFromView) {
 
         AlbumDAO albumDAO = new AlbumDAO(context);
 
+        //Chequea si hay internet, en caso de no haber conexion, trae las noticias de la DB
         if(HTTPConnectionManager.isNetworkingOnline(context)) {
             albumDAO.getAllPostFromInternet(new ResultListener<List<Album>>() {
                 @Override
                 public void finish(List<Album> resultado) {
-                    //QUE HACE EL CONTROLLER CUANDO RECIBE LA LISTA DE POST
                     resultListenerFromView.finish(resultado);
-                    Toast.makeText(context, "Internet", Toast.LENGTH_SHORT).show();
                 }
             });
         }
         else{
-            List<Album> postList = albumDAO.getAllPostFromDatabase();
-            resultListenerFromView.finish(postList);
+            resultListenerFromView.finish(albumDAO.getAllPostFromDatabase());
             Toast.makeText(context, "Base de datos", Toast.LENGTH_SHORT).show();
         }
     }
+
 }

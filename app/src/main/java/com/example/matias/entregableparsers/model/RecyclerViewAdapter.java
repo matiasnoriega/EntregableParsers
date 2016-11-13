@@ -1,17 +1,17 @@
 package com.example.matias.entregableparsers.model;
 
         import android.content.Context;
-        import android.support.v7.widget.RecyclerView;
-        import android.view.LayoutInflater;
-        import android.view.View;
-        import android.view.ViewGroup;
-        import android.widget.ImageView;
-        import android.widget.TextView;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-        import com.bumptech.glide.Glide;
-        import com.example.matias.entregableparsers.R;
+import com.bumptech.glide.Glide;
+import com.example.matias.entregableparsers.R;
 
-        import java.util.List;
+import java.util.List;
 
 /**
  * Created by dh-mob-tt on 03/11/16.
@@ -24,6 +24,22 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter {
 
     public RecyclerViewAdapter(Context contexto, List<Album> listaDeAlbumes) {
         this.contexto = contexto;
+        this.listaDeAlbumes = listaDeAlbumes;
+    }
+
+    public Context getContexto() {
+        return contexto;
+    }
+
+    public void setContexto(Context contexto) {
+        this.contexto = contexto;
+    }
+
+    public List<Album> getListaDeAlbumes() {
+        return listaDeAlbumes;
+    }
+
+    public void setListaDeAlbumes(List<Album> listaDeAlbumes) {
         this.listaDeAlbumes = listaDeAlbumes;
     }
 

@@ -10,7 +10,7 @@ import java.util.List;
 
 public class AlbumContainer {
 
-    @SerializedName("result")
+    @SerializedName("albums")
     private List<Album> albumList;
 
     public List<Album> getResults() {

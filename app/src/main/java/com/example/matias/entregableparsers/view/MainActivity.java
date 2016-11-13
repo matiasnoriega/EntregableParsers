@@ -1,10 +1,11 @@
-package com.example.matias.entregableparsers;
+package com.example.matias.entregableparsers.view;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.example.matias.entregableparsers.R;
 import com.example.matias.entregableparsers.controller.AlbumController;
 import com.example.matias.entregableparsers.model.Album;
 import com.example.matias.entregableparsers.model.RecyclerViewAdapter;

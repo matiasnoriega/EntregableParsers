@@ -17,7 +17,6 @@ public class AlbumCompletoFragment extends Fragment {
 
 
     public AlbumCompletoFragment() {
-        // Required empty public constructor
     }
 
     @Override

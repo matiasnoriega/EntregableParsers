@@ -6,13 +6,11 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.AsyncTask;
-
 import com.example.matias.entregableparsers.model.Album;
 import com.example.matias.entregableparsers.model.AlbumContainer;
 import com.example.matias.entregableparsers.util.HTTPConnectionManager;
 import com.example.matias.entregableparsers.util.ResultListener;
 import com.google.gson.Gson;
-
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;

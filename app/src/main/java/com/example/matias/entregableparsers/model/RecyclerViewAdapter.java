@@ -29,22 +29,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter {
         this.listener = onClickListener;
     }
 
-    public Context getContexto() {
-        return contexto;
-    }
-
-    public void setContexto(Context contexto) {
-        this.contexto = contexto;
-    }
-
-    public List<Album> getListaDeAlbumes() {
-        return listaDeAlbumes;
-    }
-
-    public void setListaDeAlbumes(List<Album> listaDeAlbumes) {
-        this.listaDeAlbumes = listaDeAlbumes;
-    }
-
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(contexto);

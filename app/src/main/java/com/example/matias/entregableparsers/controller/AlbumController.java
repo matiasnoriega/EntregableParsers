@@ -26,6 +26,7 @@ public class AlbumController {
                 @Override
                 public void finish(List<Album> resultado) {
                     resultListenerFromView.finish(resultado);
+                    Toast.makeText(context, "Internet", Toast.LENGTH_SHORT).show();
                 }
             });
         }

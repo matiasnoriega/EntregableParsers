@@ -14,7 +14,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         RecyclerViewFragment recyclerViewFragment = new RecyclerViewFragment();
-        cargadorDeFragments(recyclerViewFragment);
+
+        android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
+        android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fragmentMain, recyclerViewFragment);
+        fragmentTransaction.commit();
 
     }
 
@@ -22,14 +26,12 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         setContentView(R.layout.activity_main);
         RecyclerViewFragment recyclerViewFragment = new RecyclerViewFragment();
-        cargadorDeFragments(recyclerViewFragment);
-    }
 
-    public void cargadorDeFragments(android.support.v4.app.Fragment unFragment) {
         android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
         android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragmentMain,unFragment);
+        fragmentTransaction.replace(R.id.fragmentMain, recyclerViewFragment);
         fragmentTransaction.commit();
     }
+
 }
 

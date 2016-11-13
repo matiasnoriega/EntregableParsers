@@ -50,6 +50,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter {
         LayoutInflater inflater = LayoutInflater.from(contexto);
         View vistaCelda = inflater.inflate(R.layout.album_recyclerview, parent, false);
         AlbumViewHolder albumViewHolder = new AlbumViewHolder(vistaCelda);
+        vistaCelda.setOnClickListener(listener);
         return  albumViewHolder;
     }
 
@@ -58,6 +59,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter {
         Album album = listaDeAlbumes.get(position);
         AlbumViewHolder albumViewHolder = (AlbumViewHolder) holder;
         albumViewHolder.cargarAlbum(album);
+
     }
 
     @Override

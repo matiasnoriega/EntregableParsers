@@ -23,21 +23,25 @@ public class AlbumCompletoFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View viewADevolver = inflater.inflate(R.layout.fragment_album_completo, container, false);
         Bundle bundle = getArguments();
+        View viewADevolver = inflater.inflate(R.layout.fragment_album_completo, container, false);
 
         ImageView imageView = (ImageView) viewADevolver.findViewById(R.id.image_fragment_pantallaCompleta);
         TextView textView = (TextView) viewADevolver.findViewById(R.id.textViewTituloAlbumCompleto);
 
         Glide.with(viewADevolver.getContext()).load("imagen").into(imageView);
         textView.setText(bundle.getString("titulo"));
+
         return viewADevolver;
     }
 
     public static AlbumCompletoFragment crearAlbumCompletoFragment(Album unAlbum) {
         AlbumCompletoFragment fragment = new AlbumCompletoFragment();
-
         Bundle bundle = new Bundle();
+
+        bundle.putString("titulo", unAlbum.getTitle());
+        bundle.putString("imagen", unAlbum.getUrl());
+
         fragment.setArguments(bundle);
         return fragment;
     }

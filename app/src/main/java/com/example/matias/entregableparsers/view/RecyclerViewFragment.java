@@ -32,6 +32,8 @@ public class RecyclerViewFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
         View viewADevolver = inflater.inflate(R.layout.fragment_recycler_view, container, false);
 
         miListaDeAlbumes = new ArrayList<Album>();
@@ -44,6 +46,7 @@ public class RecyclerViewFragment extends Fragment {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(viewADevolver.getContext(), LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
+
         return viewADevolver;
     }
 
